@@ -170,6 +170,8 @@ describe("wrangler", () => {
       });
       expect(fs.existsSync("./tsconfig.json")).toBe(false);
       expect(mockPackageManager.install).toHaveBeenCalled();
+      expect(packageJson.scripts.start).toBe("wrangler dev src/index.ts");
+      expect(packageJson.scripts.deploy).toBe("wrangler publish src/index.ts");
     });
 
     it("should not touch an existing package.json in the same directory", async () => {

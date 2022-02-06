@@ -229,6 +229,10 @@ export async function main(argv: string[]): Promise<void> {
               {
                 name: "worker",
                 version: "0.0.0",
+                scripts: {
+                  start: "wrangler dev src/index.ts",
+                  deploy: "wrangler publish src/index.ts",
+                },
                 devDependencies: {
                   wrangler: wranglerVersion,
                 },
