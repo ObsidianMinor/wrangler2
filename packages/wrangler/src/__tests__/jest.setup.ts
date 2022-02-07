@@ -13,7 +13,7 @@ jest.mock("undici", () => {
 // that it doesn't interfere with the rest of the tests.
 jest.mock("../sentry");
 
-jest.mock("node-fetch", () => jest.requireActual("jest-fetch-mock"));
+jest.setMock("node-fetch", () => jest.requireActual("jest-fetch-mock"));
 fetchMock.doMock(() => {
   // Any un-mocked fetches should throw
   throw new Error("Unexpected fetch request");
